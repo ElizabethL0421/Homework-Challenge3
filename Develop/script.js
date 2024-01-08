@@ -117,7 +117,7 @@ function generatePassword() {
       window.alert("Good job! Press ok and continue to the next question.");
       wantspc++;
     } else if (userChoice5 === "N") {
-      window.alert("We've received all your answers!");
+      window.alert("We've received all of your answers.");
     } else {
       window.alert("Please enter a valid answer.");
       ffth();
