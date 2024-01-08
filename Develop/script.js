@@ -2,24 +2,33 @@
 
 function generatePassword() {
   
-  //make arrays
-  var numeric = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
-  var lowercase = ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "a", "s", "d", "f", "g", "h", "j", "k", "l", "z", "x", "c", "v", "b", "n", "m"];
-  // for the uppercase situation, we could use "toUpperCase" function
-  var SpcChara = ["!", "@", "#", "$", "%", "^", "&", "*", "~", "?", "/", "<", ">"]
-  
-  //randomly pick a password character type
-  var ctg = ["num", "lwr", "upr", "spc"];
-
   //use 1 to present yes, and 0 to present no
   var wantnum = 0;
   var wantlwr = 0;
   var wantupr = 0;
   var wantspc = 0;
 
-  //make a starter password
-  var pswd = ["q"];
-  
+  var len = 0;
+
+  function containsUppercase(str) {
+    return /[A-Z]/.test(str);
+  }
+
+  function containsLowercase(str) {
+    return /[a-z]/.test(str);
+  }
+
+  function containsNumber(str) {
+    return /\d/.test(str);
+  }
+
+  function containsSpcChara(str) {
+    const regex = /[!@#$%^&*()<>?/:{}=+-_~`]/; 
+    return regex.test(str);
+  }
+
+  var password = [];
+
   //present a series of prompy
   function frst() {
     //choose length 8-128
@@ -34,6 +43,9 @@ function generatePassword() {
     
     if (isInteger(userChoice1) && parseInt(userChoice1) >= 8 && parseInt(userChoice1) <= 128) {
       window.alert("Good job! Press ok and continue to the next question.");
+      for (var i = 0; i < parseInt(userChoice1); i++) {
+        len++;
+      }
     } else {
       window.alert("Please enter a valid answer.");
       frst();
@@ -113,29 +125,197 @@ function generatePassword() {
   }
 
   ffth();
-  
-  //make a random numeric
-  var rdmnum = numeric[Math.floor(Math.random() * numeric.length)];
-
-  //make a random lwrcs
-  var rdmlc = lowercase[Math.floor(Math.random() * lowercase.length)];
-
-  //make a random uprcs
-  var rdmuc = lowercase[Math.floor(Math.random() * lowercase.length)].toUpperCase();
-
-  //make a random special chara
-  var rdmspc = SpcChara[Math.floor(Math.random() * SpcChara.length)];
 
   //starting generate the password
   //TODO if else
+  if (wantnum === 1 && wantlwr === 1 && wantupr === 1 && wantspc === 1) {
+    
+    // program to generate random strings
 
-  //adding characters to the password, generate password characters "length-1" times from random categories
-  for (var i = 0; i < userChoice1; i++) {
+    // declare all characters
+    const characters ='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()<>?/:{}=+-_~`';
+
+    function generateString(length) {
+      let password = ' ';
+      const charactersLength = characters.length;
+      for ( let i = 0; i < length; i++ ) {
+        password += characters.charAt(Math.floor(Math.random() * charactersLength));
+      }
+      return password;
+    }
+    window.alert("now you have: " + (generateString(len)));
+  } else if (wantnum === 0 && wantlwr === 1 && wantupr === 1 && wantspc === 1) {
+    const characters ='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!@#$%^&*()<>?/:{}=+-_~`';
+
+    function generateString(length) {
+      let password = ' ';
+      const charactersLength = characters.length;
+      for ( let i = 0; i < length; i++ ) {
+        password += characters.charAt(Math.floor(Math.random() * charactersLength));
+      }
+      return password;
       
+    }
+    window.alert("now you have: " + (generateString(len)));
+  } else if (wantnum === 1 && wantlwr === 0 && wantupr === 1 && wantspc === 1) {
+    const characters ='ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()<>?/:{}=+-_~`';
+
+    function generateString(length) {
+      let password = ' ';
+      const charactersLength = characters.length;
+      for ( let i = 0; i < length; i++ ) {
+        password += characters.charAt(Math.floor(Math.random() * charactersLength));
+      }
+      return password;
+    }
+    window.alert("now you have: " + (generateString(len)));
+  } else if (wantnum === 1 && wantlwr === 1 && wantupr === 0 && wantspc === 1) {
+    const characters ='abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()<>?/:{}=+-_~`';
+
+    function generateString(length) {
+      let password = ' ';
+      const charactersLength = characters.length;
+      for ( let i = 0; i < length; i++ ) {
+        password += characters.charAt(Math.floor(Math.random() * charactersLength));
+      }
+      return password;
+    }
+    window.alert("now you have: " + (generateString(len)));
+  } else if (wantnum === 1 && wantlwr === 1 && wantupr === 1 && wantspc === 0) {
+    const characters ='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+
+    function generateString(length) {
+      let password = ' ';
+      const charactersLength = characters.length;
+      for ( let i = 0; i < length; i++ ) {
+        password += characters.charAt(Math.floor(Math.random() * charactersLength));
+      }
+      return password;
+    }
+    window.alert("now you have: " + (generateString(len)));
+  } else if (wantnum === 0 && wantlwr === 0 && wantupr === 1 && wantspc === 1) {
+    const characters ='ABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()<>?/:{}=+-_~`';
+
+    function generateString(length) {
+      let password = ' ';
+      const charactersLength = characters.length;
+      for ( let i = 0; i < length; i++ ) {
+        password += characters.charAt(Math.floor(Math.random() * charactersLength));
+      }
+      return password;
+    }
+    window.alert("now you have: " + (generateString(len)));
+  } else if (wantnum === 1 && wantlwr === 0 && wantupr === 0 && wantspc === 1) {
+    const characters ='0123456789!@#$%^&*()<>?/:{}=+-_~`';
+
+    function generateString(length) {
+      let password = ' ';
+      const charactersLength = characters.length;
+      for ( let i = 0; i < length; i++ ) {
+        password += characters.charAt(Math.floor(Math.random() * charactersLength));
+      }
+      return password;
+    }
+    window.alert("now you have: " + (generateString(len)));
+  } else if (wantnum === 1 && wantlwr === 1 && wantupr === 0 && wantspc === 0) {
+    const characters ='abcdefghijklmnopqrstuvwxyz0123456789';
+
+    function generateString(length) {
+      let password = ' ';
+      const charactersLength = characters.length;
+      for ( let i = 0; i < length; i++ ) {
+        password += characters.charAt(Math.floor(Math.random() * charactersLength));
+      }
+      return password;
+    }
+    window.alert("now you have: " + (generateString(len)));
+  } else if (wantnum === 0 && wantlwr === 1 && wantupr === 0 && wantspc === 1) {
+    const characters ='abcdefghijklmnopqrstuvwxyz!@#$%^&*()<>?/:{}=+-_~`';
+
+    function generateString(length) {
+      let password = ' ';
+      const charactersLength = characters.length;
+      for ( let i = 0; i < length; i++ ) {
+        password += characters.charAt(Math.floor(Math.random() * charactersLength));
+      }
+      return password;
+    }
+    window.alert("now you have: " + (generateString(len)));
+  } else if (wantnum === 1 && wantlwr === 0 && wantupr === 1 && wantspc === 0) {
+    const characters ='ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+
+    function generateString(length) {
+      let password = ' ';
+      const charactersLength = characters.length;
+      for ( let i = 0; i < length; i++ ) {
+        password += characters.charAt(Math.floor(Math.random() * charactersLength));
+      }
+      return password;
+    }
+    window.alert("now you have: " + (generateString(len)));
+  } else if (wantnum === 0 && wantlwr === 1 && wantupr === 1 && wantspc === 0) {
+    const characters ='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+
+    function generateString(length) {
+      let password = ' ';
+      const charactersLength = characters.length;
+      for ( let i = 0; i < length; i++ ) {
+        password += characters.charAt(Math.floor(Math.random() * charactersLength));
+      }
+      return password;
+    }
+    window.alert("now you have: " + (generateString(len)));
+  } else if (wantnum === 1 && wantlwr === 0 && wantupr === 0 && wantspc === 0) {
+    const characters ='0123456789';
+
+    function generateString(length) {
+      let password = ' ';
+      const charactersLength = characters.length;
+      for ( let i = 0; i < length; i++ ) {
+        password += characters.charAt(Math.floor(Math.random() * charactersLength));
+      }
+      return password;
+    }
+    window.alert("now you have: " + (generateString(len)));
+  } else if (wantnum === 0 && wantlwr === 1 && wantupr === 0 && wantspc === 0) {
+    const characters ='abcdefghijklmnopqrstuvwxyz';
+
+    function generateString(length) {
+      let password = ' ';
+      const charactersLength = characters.length;
+      for ( let i = 0; i < length; i++ ) {
+        password += characters.charAt(Math.floor(Math.random() * charactersLength));
+      }
+      return password;
+    }
+    window.alert("now you have: " + (generateString(len)));
+  } else if (wantnum === 0 && wantlwr === 0 && wantupr === 1 && wantspc === 0) {
+    const characters ='ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+    function generateString(length) {
+      let password = ' ';
+      const charactersLength = characters.length;
+      for ( let i = 0; i < length; i++ ) {
+        password += characters.charAt(Math.floor(Math.random() * charactersLength));
+      }
+      return password;
+    }
+    window.alert("now you have: " + (generateString(len)));
+  } else if (wantnum === 0 && wantlwr === 0 && wantupr === 0 && wantspc === 1) {
+    const characters ='!@#$%^&*()<>?/:{}=+-_~`';
+
+    function generateString(length) {
+      let password = ' ';
+      const charactersLength = characters.length;
+      for ( let i = 0; i < length; i++ ) {
+        password += characters.charAt(Math.floor(Math.random() * charactersLength));
+      }
+      return password;
+    }
+    window.alert("now you have: " + (generateString(len)));
+  } else {
+    window.alert("Please select at least one charater type for your password. Press the generate button to try again!" )
   }
-  //check if all criterias are met
-  //insert new random characters and delete old characters until the criteria is met
-  //run functions and display the password
 }
 
 // Get references to the #generate element
@@ -152,5 +332,4 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-
 
