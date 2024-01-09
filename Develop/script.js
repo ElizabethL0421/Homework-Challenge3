@@ -60,10 +60,10 @@ function generatePassword() {
     console.log(userChoice2);
     //check if the user's answer is valid
     if (userChoice2 === "Y") {
-      window.alert("Good job! Press ok and continue to the next question.");
+      window.alert("Good job! You will include at least one lowercase character. Press ok and continue to the next question.");
       wantlwr++;
     } else if (userChoice2 === "N") {
-      window.alert("Good job! Press ok and continue to the next question.");
+      window.alert("Good job! You will not include any lowercase letters. Press ok and continue to the next question.");
     } else {
       window.alert("Please enter a valid answer.");
       scnd();
@@ -143,7 +143,8 @@ function generatePassword() {
       }
       return password;
     }
-    window.alert("now you have: " + (generateString(len)));
+    //window.alert("Now you have: " + (generateString(len)) + " as your new password!");
+    return generateString(len);
   } else if (wantnum === 0 && wantlwr === 1 && wantupr === 1 && wantspc === 1) {
     const characters ='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!@#$%^&*()<>?/:{}=+-_~`';
 
@@ -156,7 +157,8 @@ function generatePassword() {
       return password;
       
     }
-    window.alert("now you have: " + (generateString(len)));
+    //window.alert("Now you have: " + (generateString(len)) + " as your new password!");
+    return generateString(len);
   } else if (wantnum === 1 && wantlwr === 0 && wantupr === 1 && wantspc === 1) {
     const characters ='ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()<>?/:{}=+-_~`';
 
@@ -168,7 +170,8 @@ function generatePassword() {
       }
       return password;
     }
-    window.alert("now you have: " + (generateString(len)));
+    //window.alert("Now you have: " + (generateString(len)) + " as your new password!");
+    return generateString(len);
   } else if (wantnum === 1 && wantlwr === 1 && wantupr === 0 && wantspc === 1) {
     const characters ='abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()<>?/:{}=+-_~`';
 
@@ -180,7 +183,8 @@ function generatePassword() {
       }
       return password;
     }
-    window.alert("now you have: " + (generateString(len)));
+    //window.alert("Now you have: " + (generateString(len)) + " as your new password!");
+    return generateString(len);
   } else if (wantnum === 1 && wantlwr === 1 && wantupr === 1 && wantspc === 0) {
     const characters ='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
 
@@ -192,7 +196,8 @@ function generatePassword() {
       }
       return password;
     }
-    window.alert("now you have: " + (generateString(len)));
+    //window.alert("Now you have: " + (generateString(len)) + " as your new password!");
+    return generateString(len);
   } else if (wantnum === 0 && wantlwr === 0 && wantupr === 1 && wantspc === 1) {
     const characters ='ABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()<>?/:{}=+-_~`';
 
@@ -204,7 +209,8 @@ function generatePassword() {
       }
       return password;
     }
-    window.alert("now you have: " + (generateString(len)));
+    //window.alert("Now you have: " + (generateString(len)) + " as your new password!");
+    return generateString(len);
   } else if (wantnum === 1 && wantlwr === 0 && wantupr === 0 && wantspc === 1) {
     const characters ='0123456789!@#$%^&*()<>?/:{}=+-_~`';
 
@@ -216,7 +222,8 @@ function generatePassword() {
       }
       return password;
     }
-    window.alert("now you have: " + (generateString(len)));
+    //window.alert("Now you have: " + (generateString(len)) + " as your new password!");
+    return generateString(len);
   } else if (wantnum === 1 && wantlwr === 1 && wantupr === 0 && wantspc === 0) {
     const characters ='abcdefghijklmnopqrstuvwxyz0123456789';
 
@@ -228,7 +235,8 @@ function generatePassword() {
       }
       return password;
     }
-    window.alert("now you have: " + (generateString(len)));
+    //window.alert("Now you have: " + (generateString(len)) + " as your new password!");
+    return generateString(len);
   } else if (wantnum === 0 && wantlwr === 1 && wantupr === 0 && wantspc === 1) {
     const characters ='abcdefghijklmnopqrstuvwxyz!@#$%^&*()<>?/:{}=+-_~`';
 
@@ -240,7 +248,8 @@ function generatePassword() {
       }
       return password;
     }
-    window.alert("now you have: " + (generateString(len)));
+    //window.alert("Now you have: " + (generateString(len)) + " as your new password!");
+    return generateString(len);
   } else if (wantnum === 1 && wantlwr === 0 && wantupr === 1 && wantspc === 0) {
     const characters ='ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
 
@@ -252,7 +261,8 @@ function generatePassword() {
       }
       return password;
     }
-    window.alert("now you have: " + (generateString(len)));
+    //window.alert("Now you have: " + (generateString(len)) + " as your new password!");
+    return generateString(len);
   } else if (wantnum === 0 && wantlwr === 1 && wantupr === 1 && wantspc === 0) {
     const characters ='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
 
@@ -264,7 +274,8 @@ function generatePassword() {
       }
       return password;
     }
-    window.alert("now you have: " + (generateString(len)));
+    //window.alert("Now you have: " + (generateString(len)) + " as your new password!");
+    return generateString(len);
   } else if (wantnum === 1 && wantlwr === 0 && wantupr === 0 && wantspc === 0) {
     const characters ='0123456789';
 
@@ -276,7 +287,8 @@ function generatePassword() {
       }
       return password;
     }
-    window.alert("now you have: " + (generateString(len)));
+    //window.alert("Now you have: " + (generateString(len)) + " as your new password!");
+    return generateString(len);
   } else if (wantnum === 0 && wantlwr === 1 && wantupr === 0 && wantspc === 0) {
     const characters ='abcdefghijklmnopqrstuvwxyz';
 
@@ -288,7 +300,8 @@ function generatePassword() {
       }
       return password;
     }
-    window.alert("now you have: " + (generateString(len)));
+    //window.alert("Now you have: " + (generateString(len)) + " as your new password!");
+    return generateString(len);
   } else if (wantnum === 0 && wantlwr === 0 && wantupr === 1 && wantspc === 0) {
     const characters ='ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
@@ -300,7 +313,8 @@ function generatePassword() {
       }
       return password;
     }
-    window.alert("now you have: " + (generateString(len)));
+    //window.alert("Now you have: " + (generateString(len)) + " as your new password!");
+    return generateString(len);
   } else if (wantnum === 0 && wantlwr === 0 && wantupr === 0 && wantspc === 1) {
     const characters ='!@#$%^&*()<>?/:{}=+-_~`';
 
@@ -312,7 +326,9 @@ function generatePassword() {
       }
       return password;
     }
-    window.alert("now you have: " + (generateString(len)));
+    //window.alert("Now you have: " + (generateString(len)) + " as your new password!");
+    return generateString(len);
+
   } else {
     window.alert("Please select at least one charater type for your password. Press the generate button to try again!" )
   }
@@ -324,6 +340,7 @@ var generateBtn = document.querySelector("#generate");
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
+  console.log("generatepassword", password);
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
